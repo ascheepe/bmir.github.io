@@ -9,109 +9,109 @@
 
 <style>
 body {
-    font-family: system-ui, sans-serif;
-    background: #f2f2f2;
-    padding: clamp(1rem, 4vw, 2rem);
+  font-family: system-ui, sans-serif;
+  background: #f2f2f2;
+  padding: clamp(1rem, 4vw, 2rem);
 }
 
 .card {
-    max-width: 480px;
-    margin: auto;
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  max-width: 480px;
+  margin: auto;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
 
 .field {
-    display: grid;
-    grid-template-rows: auto auto;
-    margin-top: 1rem;
-    min-height: 44px;
+  display: grid;
+  grid-template-rows: auto auto;
+  margin-top: 1rem;
+  min-height: 44px;
 }
 
 .field label {
-    margin-bottom: 0.25rem;
-    font-weight: 500;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
 }
 
 .field input,
 .field select {
-    box-sizing: border-box;
-    width: 100%;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .range {
-    margin-top: 1.5rem;
-    background: #eef;
-    padding: 1rem;
-    border-radius: 6px;
+  margin-top: 1.5rem;
+  background: #eef;
+  padding: 1rem;
+  border-radius: 6px;
 }
 
 .range-grid {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    row-gap: 0.5rem;
-    column-gap: 1rem;
-    align-items: baseline;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 0.5rem;
+  column-gap: 1rem;
+  align-items: baseline;
 }
 
 /* labels */
 .range-grid > div:nth-child(odd) {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 /* and their values */
 .range-grid > div:nth-child(even) {
-    text-align: right;
-    font-variant-numeric: tabular-nums;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
 .result {
-    margin-top: 1.5rem;
-    background: #eef;
-    padding: 1rem;
-    border-radius: 6px;
+  margin-top: 1.5rem;
+  background: #eef;
+  padding: 1rem;
+  border-radius: 6px;
 }
 
 .result.underweight {
-    background: hsl(210 100% 75%);
+  background: hsl(210 100% 75%);
 }
 
 .result.normalweight {
-    background: hsl(120 100% 75%);
+  background: hsl(120 100% 75%);
 }
 
 .result.overweight {
-    background: hsl(30 100% 75%);
+  background: hsl(30 100% 75%);
 }
 
 .result.obese {
-    background: hsl(0 100% 75%);
+  background: hsl(0 100% 75%);
 }
 
 .result-grid {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    row-gap: 0.5rem;
-    column-gap: 1rem;
-    align-items: baseline;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 0.5rem;
+  column-gap: 1rem;
+  align-items: baseline;
 }
 
 /* labels */
 .result-grid > div:nth-child(odd) {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 /* and their values */
 .result-grid > div:nth-child(even) {
-    text-align: right;
-    font-variant-numeric: tabular-nums;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
 .error {
-    margin-top: 1rem;
-    color: #900;
+  margin-top: 1rem;
+  color: #900;
 }
 </style>
 </head>
@@ -124,9 +124,9 @@ body {
 <div class="field">
 <label for="sex">Sex</label>
 <select id="sex">
-    <option value="male">Male</option>
-    <option value="female">Female</option>
-    <option value="male">Yes please</option> <!-- whehehehe -->
+  <option value="male">Male</option>
+  <option value="female">Female</option>
+  <option value="male">Yes please</option> <!-- whehehehe -->
 </select>
 </div>
 
@@ -148,37 +148,37 @@ body {
 <div class="field">
 <label for="activity">Activity level</label>
 <select id="activity">
-    <option value="1.2">Sedentary</option>
-    <option value="1.375">Light exercise</option>
-    <option value="1.55">Moderate exercise</option>
-    <option value="1.725">Heavy exercise</option>
-    <option value="1.9">Athlete</option>
+  <option value="1.2">Sedentary</option>
+  <option value="1.375">Light exercise</option>
+  <option value="1.55">Moderate exercise</option>
+  <option value="1.725">Heavy exercise</option>
+  <option value="1.9">Athlete</option>
 </select>
 </div>
 
 <div id="error" class="error"></div>
 
 <div id="result" class="result" hidden>
-    <div class="result-grid">
-        <div>BMI</div>
-        <div id="bmi-value"></div>
+  <div class="result-grid">
+    <div>BMI</div>
+    <div id="bmi-value"></div>
 
-        <div>BMR</div>
-        <div id="bmr-value"></div>
+    <div>BMR</div>
+    <div id="bmr-value"></div>
 
-        <div>TDEE</div>
-        <div id="tdee-value"></div>
-    </div>
+    <div>TDEE</div>
+    <div id="tdee-value"></div>
+  </div>
 </div>
 
 <div id="range" class="range" hidden>
-    <div class="range-grid">
-        <div>Healthy weight range</div>
-        <div id="healthy-range"></div>
+  <div class="range-grid">
+    <div>Healthy weight range</div>
+    <div id="healthy-range"></div>
 
-        <div>Reference (midpoint)</div>
-        <div id="reference-weight"></div>
-    </div>
+    <div>Reference (midpoint)</div>
+    <div id="reference-weight"></div>
+  </div>
 </div>
 </div>
 
@@ -188,120 +188,120 @@ const fields = ["sex", "age", "height", "weight", "activity"];
 /* ---------------- persistence ---------------- */
 
 function save() {
-    const data = {};
-    fields.forEach(id => data[id] = document.getElementById(id).value);
-    localStorage.setItem("bmiApp", JSON.stringify(data));
+  const data = {};
+  fields.forEach(id => data[id] = document.getElementById(id).value);
+  localStorage.setItem("bmiApp", JSON.stringify(data));
 }
 
 function load() {
-    const data = JSON.parse(localStorage.getItem("bmiApp"));
-    if (!data) return;
-    fields.forEach(id => {
-        if (data[id] !== undefined) {
-            document.getElementById(id).value = data[id];
-        }
-    });
+  const data = JSON.parse(localStorage.getItem("bmiApp"));
+  if (!data) return;
+  fields.forEach(id => {
+    if (data[id] !== undefined) {
+      document.getElementById(id).value = data[id];
+    }
+  });
 }
 
 /* ---------------- math ---------------- */
 
 function calculateBMI(weightKg, heightCm) {
-    const h = heightCm / 100;
-    return weightKg / (h * h);
+  const h = heightCm / 100;
+  return weightKg / (h * h);
 }
 
 function bmiCategory(bmi) {
-    if (bmi < 18.5) return "Underweight";
-    if (bmi < 25)   return "Normal weight";
-    if (bmi < 30)   return "Overweight";
-    return "Obese";
+  if (bmi < 18.5) return "Underweight";
+  if (bmi < 25)   return "Normal weight";
+  if (bmi < 30)   return "Overweight";
+  return "Obese";
 }
 
 function bmiClassname(bmi) {
-    if (bmi < 18.5) return "underweight";
-    if (bmi < 25)   return "normalweight";
-    if (bmi < 30)   return "overweight";
-    return "obese";
+  if (bmi < 18.5) return "underweight";
+  if (bmi < 25)   return "normalweight";
+  if (bmi < 30)   return "overweight";
+  return "obese";
 }
 
 function calculateBMR(weightKg, heightCm, age, sex) {
-    let bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * age);
-    return sex === "male" ? bmr + 5 : bmr - 161;
+  let bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * age);
+  return sex === "male" ? bmr + 5 : bmr - 161;
 }
 
 function calculateHealthyRange(heightCm) {
-    let h = heightCm / 100;
+  let h = heightCm / 100;
 
-    return {
-        min: (h * h * 18.5),
-        max: (h * h * 25)
-    };
+  return {
+    min: (h * h * 18.5),
+    max: (h * h * 25)
+  };
 }
 
 function calculateReferenceWeight(heightCm) {
-    let h = heightCm / 100;
-    return h * h * 21.75;
+  let h = heightCm / 100;
+  return h * h * 21.75;
 }
 
 /* ---------------- main logic ---------------- */
 
 function recalculate() {
-    const sex = document.getElementById("sex").value;
-    const age = Number(document.getElementById("age").value);
-    let height = Number(document.getElementById("height").value);
-    let weight = Number(document.getElementById("weight").value);
-    const activity = Number(document.getElementById("activity").value);
+  const sex = document.getElementById("sex").value;
+  const age = Number(document.getElementById("age").value);
+  let height = Number(document.getElementById("height").value);
+  let weight = Number(document.getElementById("weight").value);
+  const activity = Number(document.getElementById("activity").value);
 
-    const error = document.getElementById("error");
-    const result = document.getElementById("result");
+  const error = document.getElementById("error");
+  const result = document.getElementById("result");
 
-    error.textContent = "";
-    range.hidden = true;
-    result.className = "result"; // Restore default state.
-    result.hidden = true;
+  error.textContent = "";
+  range.hidden = true;
+  result.className = "result"; // Restore default state.
+  result.hidden = true;
 
-    // validation without alerts
-    if (age <= 0 || height <= 0 || weight <= 0) {
-        error.textContent = "Please enter positive values for age, height and weight.";
-        return;
-    }
+  // validation without alerts
+  if (age <= 0 || height <= 0 || weight <= 0) {
+    error.textContent = "Please enter positive values for age, height and weight.";
+    return;
+  }
 
-    const referenceweight = calculateReferenceWeight(height);
-    const healthyRange = calculateHealthyRange(height);
+  const referenceweight = calculateReferenceWeight(height);
+  const healthyRange = calculateHealthyRange(height);
 
-    document.getElementById("healthy-range").textContent =
-        healthyRange.min.toFixed(1) + " - " + healthyRange.max.toFixed(1) + " kg";
-    document.getElementById("reference-weight").textContent =
-        referenceweight.toFixed(1) + " kg";
-    range.hidden = false;
+  document.getElementById("healthy-range").textContent =
+    healthyRange.min.toFixed(1) + " - " + healthyRange.max.toFixed(1) + " kg";
+  document.getElementById("reference-weight").textContent =
+    referenceweight.toFixed(1) + " kg";
+  range.hidden = false;
 
-    const bmi = calculateBMI(weight, height);
-    const bmr = calculateBMR(weight, height, age, sex);
-    const tdee = bmr * activity;
+  const bmi = calculateBMI(weight, height);
+  const bmr = calculateBMR(weight, height, age, sex);
+  const tdee = bmr * activity;
 
-    document.getElementById("bmi-value").textContent  = bmi.toFixed(1)
-        + " (" + bmiCategory(bmi) + ")";
-    document.getElementById("bmr-value").textContent  = Math.round(bmr)
-        + " kcal/day";
-    document.getElementById("tdee-value").textContent = Math.round(tdee)
-        + " kcal/day";
+  document.getElementById("bmi-value").textContent  = bmi.toFixed(1)
+    + " (" + bmiCategory(bmi) + ")";
+  document.getElementById("bmr-value").textContent  = Math.round(bmr)
+    + " kcal/day";
+  document.getElementById("tdee-value").textContent = Math.round(tdee)
+    + " kcal/day";
 
-    result.classList.add(bmiClassname(bmi));
-    result.hidden = false;
+  result.classList.add(bmiClassname(bmi));
+  result.hidden = false;
 
-    save();
+  save();
 }
 
 /* ---------------- wiring ---------------- */
 
 // live recalculation: every change triggers recompute
 fields.forEach(id => {
-    document.getElementById(id).addEventListener("input", recalculate);
-    document.getElementById(id).addEventListener("change", recalculate);
+  document.getElementById(id).addEventListener("input", recalculate);
+  document.getElementById(id).addEventListener("change", recalculate);
 });
 
 if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js");
+  navigator.serviceWorker.register("sw.js");
 }
 
 load();
