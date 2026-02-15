@@ -40,6 +40,32 @@ body {
     width: 100%;
 }
 
+.range {
+    margin-top: 1.5rem;
+    background: #eef;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.range-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    row-gap: 0.5rem;
+    column-gap: 1rem;
+    align-items: baseline;
+}
+
+/* labels */
+.range-grid > div:nth-child(odd) {
+    font-weight: 500;
+}
+
+/* and their values */
+.range-grid > div:nth-child(even) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
 .result {
     margin-top: 1.5rem;
     background: #eef;
@@ -130,6 +156,7 @@ body {
 </div>
 
 <div id="error" class="error"></div>
+
 <div id="result" class="result" hidden>
     <div class="result-grid">
         <div>BMI</div>
@@ -140,6 +167,16 @@ body {
 
         <div>TDEE</div>
         <div id="tdee-value"></div>
+    </div>
+</div>
+
+<div id="range" class="range" hidden>
+    <div class="range-grid">
+        <div>Healthy weight range</div>
+        <div id="healthy-range"></div>
+
+        <div>Reference (midpoint)</div>
+        <div id="reference-weight"></div>
     </div>
 </div>
 </div>
@@ -191,6 +228,20 @@ function calculateBMR(weightKg, heightCm, age, sex) {
     return sex === "male" ? bmr + 5 : bmr - 161;
 }
 
+function calculateHealthyRange(heightCm) {
+    let h = heightCm / 100;
+
+    return {
+        min: (h * h * 18.5),
+        max: (h * h * 25)
+    };
+}
+
+function calculateReferenceWeight(heightCm) {
+    let h = heightCm / 100;
+    return h * h * 21.75;
+}
+
 /* ---------------- main logic ---------------- */
 
 function recalculate() {
@@ -204,6 +255,7 @@ function recalculate() {
     const result = document.getElementById("result");
 
     error.textContent = "";
+    range.hidden = true;
     result.className = "result"; // Restore default state.
     result.hidden = true;
 
@@ -213,18 +265,28 @@ function recalculate() {
         return;
     }
 
+    const referenceweight = calculateReferenceWeight(height);
+    const healthyRange = calculateHealthyRange(height);
+
+    document.getElementById("healthy-range").textContent =
+        healthyRange.min.toFixed(1) + " - " + healthyRange.max.toFixed(1) + " kg";
+    document.getElementById("reference-weight").textContent =
+        referenceweight.toFixed(1) + " kg";
+    range.hidden = false;
+
     const bmi = calculateBMI(weight, height);
     const bmr = calculateBMR(weight, height, age, sex);
     const tdee = bmr * activity;
 
-    result.classList.add(bmiClassname(bmi));
-    result.hidden = false;
     document.getElementById("bmi-value").textContent  = bmi.toFixed(1)
         + " (" + bmiCategory(bmi) + ")";
     document.getElementById("bmr-value").textContent  = Math.round(bmr)
         + " kcal/day";
     document.getElementById("tdee-value").textContent = Math.round(tdee)
         + " kcal/day";
+
+    result.classList.add(bmiClassname(bmi));
+    result.hidden = false;
 
     save();
 }
