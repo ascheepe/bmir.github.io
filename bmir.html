@@ -36,6 +36,7 @@ body {
 
 .field input,
 .field select {
+    box-sizing: border-box;
     width: 100%;
 }
 
@@ -44,6 +45,25 @@ body {
     background: #eef;
     padding: 1rem;
     border-radius: 6px;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    row-gap: 0.5rem;
+    column-gap: 1rem;
+    align-items: baseline;
+}
+
+/* labels */
+.result-grid > div:nth-child(odd) {
+    font-weight: 500;
+}
+
+/* and their values */
+.result-grid > div:nth-child(even) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
 }
 
 .error {
@@ -101,7 +121,18 @@ body {
 </div>
 
 <div id="error" class="error"></div>
-<div id="result" class="result" hidden></div>
+<div id="result" class="result" hidden>
+    <div class="result-grid">
+        <div>BMI</div>
+        <div id="bmi-value"></div>
+
+        <div>BMR</div>
+        <div id="bmr-value"></div>
+
+        <div>TDEE</div>
+        <div id="tdee-value"></div>
+    </div>
+</div>
 </div>
 
 <script>
@@ -157,7 +188,6 @@ function recalculate() {
     const error = document.getElementById("error");
     const result = document.getElementById("result");
 
-    error.textContent = "";
     result.hidden = true;
 
     // validation without alerts
@@ -177,12 +207,12 @@ function recalculate() {
     const tdee = bmr * activity;
 
     result.hidden = false;
-    result.innerHTML = `
-        <strong>BMI:</strong> ${bmi.toFixed(1)}
-        (${bmiCategory(bmi)})<br>
-        <strong>BMR:</strong> ${Math.round(bmr)} kcal/day<br>
-        <strong>TDEE:</strong> ${Math.round(tdee)} kcal/day
-    `;
+    document.getElementById("bmi-value").textContent  = bmi.toFixed(1)
+        + " (" + bmiCategory(bmi) + ")";
+    document.getElementById("bmr-value").textContent  = Math.round(bmr)
+        + " kcal/day";
+    document.getElementById("tdee-value").textContent = Math.round(tdee)
+        + " kcal/day";
 
     save();
 }

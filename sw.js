@@ -1,4 +1,4 @@
-const CACHE_NAME = "bmi-app-v2";
+const CACHE_NAME = "bmi-app-v3";
 const FILES = [
     "./",
     "./bmir.html",
