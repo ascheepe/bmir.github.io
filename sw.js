@@ -1,20 +1,20 @@
 const CACHE_NAME = "bmi-app-v2";
 const FILES = [
-	"./",
-	"./bmir.html",
-	"./manifest.json"
+    "./",
+    "./bmir.html",
+    "./manifest.json"
 ];
 
 self.addEventListener("install", event => {
-	event.waitUntil(
-		caches.open(CACHE_NAME).then(cache => cache.addAll(FILES))
-	);
+    event.waitUntil(
+        caches.open(CACHE_NAME).then(cache => cache.addAll(FILES))
+    );
 });
 
 self.addEventListener("fetch", event => {
-	event.respondWith(
-		caches.match(event.request)
-			.then(response => response || fetch(event.request))
-	);
+    event.respondWith(
+        caches.match(event.request)
+            .then(response => response || fetch(event.request))
+    );
 });
 
