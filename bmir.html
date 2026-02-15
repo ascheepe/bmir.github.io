@@ -204,7 +204,7 @@ function recalculate() {
     const result = document.getElementById("result");
 
     error.textContent = "";
-    result.className = "result";
+    result.className = "result"; // Restore default state.
     result.hidden = true;
 
     // validation without alerts
@@ -217,12 +217,6 @@ function recalculate() {
     const bmr = calculateBMR(weight, height, age, sex);
     const tdee = bmr * activity;
 
-    result.classList.remove(
-        "underweight",
-        "normalweight",
-        "overweight",
-        "obese"
-    );
     result.classList.add(bmiClassname(bmi));
     result.hidden = false;
     document.getElementById("bmi-value").textContent  = bmi.toFixed(1)
