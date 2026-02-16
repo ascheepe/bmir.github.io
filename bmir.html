@@ -8,16 +8,52 @@
 <title>BMI Calculator</title>
 
 <style>
+
+:root {
+  --background-color: #f2f2f2;
+  --foreground-color: black;
+  --input-background-color: white;
+  --input-foreground-color: black;
+  --card-background-color: white;
+  --range-background-color: #eef;
+  --range-foreground-color: black;
+  --result-background-color: #eef;
+  --result-foreground-color: black;
+  --error-color: #900;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #1d1d20;
+    --foreground-color: #f2f2f2;
+    --input-background-color: #4d4d50;
+    --input-foreground-color: #f2f2f2;
+    --card-background-color: #2d2d30;
+    --range-background-color: #3d3d40;
+    --range-foreground-color: #f2f2f2;
+    --result-background-color: #eef;
+    --result-foreground-color: black;
+    --error-color: #f55;
+  }
+}
+
 body {
   font-family: system-ui, sans-serif;
-  background: #f2f2f2;
+  background: var(--background-color);
+  color: var(--foreground-color);
   padding: clamp(1rem, 4vw, 2rem);
+}
+
+input, select {
+  background: var(--input-background-color);
+  color: var(--input-foreground-color);
 }
 
 .card {
   max-width: 480px;
   margin: auto;
-  background: white;
+  background: var(--card-background-color);
+  color: var(--foreground-color);
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
@@ -43,7 +79,8 @@ body {
 
 .range {
   margin-top: 1.5rem;
-  background: #eef;
+  background: var(--range-background-color);
+  color: var(--range-foreground-color);
   padding: 1rem;
   border-radius: 6px;
 }
@@ -69,7 +106,8 @@ body {
 
 .result {
   margin-top: 1.5rem;
-  background: #eef;
+  background: var(--result-background-color);
+  color: var(--result-foreground-color);
   padding: 1rem;
   border-radius: 6px;
 }
@@ -111,7 +149,7 @@ body {
 
 .error {
   margin-top: 1rem;
-  color: #900;
+  color: var(--error-color);
 }
 </style>
 </head>
