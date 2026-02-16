@@ -1,21 +1,21 @@
 {
-    "name": "BMI Calculator",
-    "short_name": "BMI",
-    "start_url": "bmir.html",
-    "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#3366cc",
-    "icons": [
-        {
-            "src": "icon-192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "icon-512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ]
+  "name": "BMI Calculator",
+  "short_name": "BMI",
+  "start_url": "bmir.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3366cc",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
 
