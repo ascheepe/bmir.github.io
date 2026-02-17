@@ -12,9 +12,9 @@
 :root {
   --background-color: #f2f2f2;
   --foreground-color: black;
-  --input-background-color: white;
-  --input-border-color: black;
-  --input-foreground-color: #f2f2f2;
+  --input-background-color: #f2f2f2;
+  --input-border-color: #e2e2e2;
+  --input-foreground-color: black;
   --card-background-color: white;
   --range-background-color: #eef;
   --range-foreground-color: black;
@@ -55,11 +55,11 @@ body {
 }
 
 input, select {
-  background: var(--input-background-color);
+  background-color: var(--input-background-color);
+  color: var(--input-foreground-color);
   border-color: var(--input-border-color);
   border-style: solid;
   border-radius: 5px;
-  color: var(--input-foreground-color);
 }
 
 .card {
@@ -119,10 +119,8 @@ input, select {
 
 .result {
   margin-top: 1.5rem;
-  /*
   background: var(--result-background-color);
   color: var(--result-foreground-color);
-  */
   padding: 1rem;
   border-radius: 6px;
 }
