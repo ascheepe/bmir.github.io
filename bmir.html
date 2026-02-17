@@ -21,6 +21,10 @@
   --result-background-color: #eef;
   --result-foreground-color: black;
   --error-color: #900;
+  --underweight-color: hsl(210 100% 75%);
+  --normalweight-color: hsl(120 100% 75%);
+  --overweight-color: hsl(30 100% 75%);
+  --obese-color: hsl(0 100% 75%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,6 +40,10 @@
     --result-background-color: #eef;
     --result-foreground-color: black;
     --error-color: #f55;
+    --underweight-color: hsl(210 100% 10%);
+    --normalweight-color: hsl(120 100% 10%);
+    --overweight-color: hsl(30 100% 10%);
+    --obese-color: hsl(0 100% 10%);
   }
 }
 
@@ -111,26 +119,28 @@ input, select {
 
 .result {
   margin-top: 1.5rem;
+  /*
   background: var(--result-background-color);
   color: var(--result-foreground-color);
+  */
   padding: 1rem;
   border-radius: 6px;
 }
 
 .result.underweight {
-  background: hsl(210 100% 75%);
+  background: var(--underweight-color);
 }
 
 .result.normalweight {
-  background: hsl(120 100% 75%);
+  background: var(--normalweight-color);
 }
 
 .result.overweight {
-  background: hsl(30 100% 75%);
+  background: var(--overweight-color);
 }
 
 .result.obese {
-  background: hsl(0 100% 75%);
+  background: var(--obese-color);
 }
 
 .result-grid {
