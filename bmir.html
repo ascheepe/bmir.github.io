@@ -13,7 +13,8 @@
   --background-color: #f2f2f2;
   --foreground-color: black;
   --input-background-color: white;
-  --input-foreground-color: black;
+  --input-border-color: black;
+  --input-foreground-color: #f2f2f2;
   --card-background-color: white;
   --range-background-color: #eef;
   --range-foreground-color: black;
@@ -27,6 +28,7 @@
     --background-color: #1d1d20;
     --foreground-color: #f2f2f2;
     --input-background-color: #4d4d50;
+    --input-border-color: #5d5d60;
     --input-foreground-color: #f2f2f2;
     --card-background-color: #2d2d30;
     --range-background-color: #3d3d40;
@@ -46,6 +48,9 @@ body {
 
 input, select {
   background: var(--input-background-color);
+  border-color: var(--input-border-color);
+  border-style: solid;
+  border-radius: 5px;
   color: var(--input-foreground-color);
 }
 
