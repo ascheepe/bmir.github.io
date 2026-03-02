@@ -1,7 +1,7 @@
 {
   "name": "BMI Calculator",
   "short_name": "BMI",
-  "start_url": "bmir.html",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#3366cc",

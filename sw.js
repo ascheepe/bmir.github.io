@@ -1,12 +1,13 @@
-const CACHE_NAME = "bmi-app-v9";
+const CACHE_NAME = "bmi-app-v10";
 const FILES = [
   "./",
-  "./bmir.html",
-  "./manifest.json",
-  "./sw.js",
+  "./bmir.js",
   "./favicon.ico",
   "./icon-192.png",
   "./icon-512.png"
+  "./index.html",
+  "./manifest.json",
+  "./sw.js",
 ];
 
 self.addEventListener("install", event => {
